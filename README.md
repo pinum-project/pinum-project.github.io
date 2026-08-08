@@ -35,4 +35,4 @@ python3 -m http.server 8000
 
 ## Deployment
 
-Static site — deployable as-is to GitHub Pages, Netlify, or any static host.
+Github pages
