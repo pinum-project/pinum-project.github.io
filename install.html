@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Install PiNum on Linux/macOS or build from source, then run your first .pn program." />
+  <title>Install · PiNum</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="install.html" class="active">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-wrap">
+    <div class="docs-head">
+      <h1>Installation</h1>
+      <p class="docs-sub">Get PiNum running in a few minutes.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>One-line install</h3>
+          <p>The fastest way to install PiNum on Linux/macOS:</p>
+          <div class="codeblock">
+            <pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/tanvir-techbro/PiNum-Lang/main/install.sh | bash</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Prerequisites</h3>
+          <p>A C compiler (e.g. <code>gcc</code>) and <code>make</code>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Build from source</h3>
+          <div class="codeblock">
+            <pre><code class="language-bash">git clone https://github.com/tanvir-techbro/PiNum-Lang.git
+cd PiNum-Lang
+make</code></pre>
+          </div>
+          <p>The binary lives in the <code>bin/</code> directory. Add it to your PATH with <code>sudo make install</code>.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Run a program</h3>
+          <p>PiNum files use the <code>.pn</code> extension:</p>
+          <div class="codeblock">
+            <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Windows:</strong> PiNum supports Linux/macOS only. Use
+      <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener">WSL</a>
+      and follow the Linux instructions.
+    </div>
+
+    <div class="doc-section">
+      <h2>Editor support</h2>
+      <p>Syntax highlighting is bundled in the repo under <code>extras/</code>.</p>
+      <ul>
+        <li><strong>VS Code:</strong> extension at <code>extras/vscode/</code></li>
+        <li><strong>Neovim:</strong> run <code>./activate_syntax.sh</code> from the repo root</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

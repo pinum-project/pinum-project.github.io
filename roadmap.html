@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PiNum development status and roadmap: what's done, what's in progress, and what's coming next." />
+  <title>Roadmap · PiNum</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-wrap">
+    <div class="docs-head">
+      <h1>Development status</h1>
+      <p class="docs-sub">
+        PiNum is in its early stages. The lexer, AST, and parser are complete;
+        code generation is being built out now. Current version: v0.10.12.
+      </p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Done</h2>
+      <ul class="roadmap-list">
+        <li><span class="status done">Done</span> Lexer / tokenizer</li>
+        <li><span class="status done">Done</span> AST construction</li>
+        <li><span class="status done">Done</span> Parser</li>
+        <li><span class="status done">Done</span> Variable declarations &amp; assignments</li>
+        <li><span class="status done">Done</span> Blocks, <code>if / else</code>, <code>while</code>, <code>for</code></li>
+        <li><span class="status done">Done</span> <code>return</code>, <code>break</code>, <code>continue</code></li>
+        <li><span class="status done">Done</span> Ternary operator</li>
+        <li><span class="status done">Done</span> Full expression grammar &amp; <code>@import</code> directives</li>
+        <li><span class="status done">Done</span> Codegen: literals, expressions, <code>print()</code> → <code>printf()</code></li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>In progress</h2>
+      <ul class="roadmap-list">
+        <li><span class="status wip">WIP</span> Codegen: blocks, <code>if</code>, <code>while</code>, <code>for</code>, <code>return</code></li>
+        <li><span class="status wip">WIP</span> Codegen: <code>read()</code>, <code>break</code>, <code>continue</code></li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Up next</h2>
+      <ul class="roadmap-list">
+        <li><span class="status planned">Planned</span> Function definitions &amp; calls</li>
+        <li><span class="status planned">Planned</span> <code>switch</code> / <code>case</code></li>
+        <li><span class="status planned">Planned</span> Arrays — <code>int arr[5]</code></li>
+        <li><span class="status planned">Planned</span> Structs &amp; member access — <code>obj.prop</code></li>
+        <li><span class="status planned">Planned</span> Runtime library</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PiNum documentation: comments, imports, types, variables, operators, conditions, and loops." />
+  <title>Documentation · PiNum</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html" class="active">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-wrap">
+    <div class="docs-head">
+      <h1>Documentation</h1>
+      <p class="docs-sub">A guide to the PiNum syntax. The language is under active development, so the spec may evolve.</p>
+    </div>
+
+    <div class="docs-grid">
+      <aside class="toc">
+        <h4>On this page</h4>
+        <a href="#comments">Comments</a>
+        <a href="#directives">Imports &amp; directives</a>
+        <a href="#variables">Variables &amp; types</a>
+        <a href="#operators">Operators</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#loops">Loops</a>
+        <a href="#io">Input &amp; output</a>
+      </aside>
+
+      <div class="doc-content">
+        <section id="comments" class="doc-section">
+          <h2>Comments</h2>
+          <p>Single-line comments start with <code>#</code>.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum"># this is a comment!
+# there is only single line comments.
+
+int a = 1;   # comments can appear after code too</code></pre>
+          </div>
+        </section>
+
+        <section id="directives" class="doc-section">
+          <h2>Imports &amp; directives</h2>
+          <p>Directives begin with <code>@</code>. Pull in the standard library with <code>@import</code>.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">@import stdlib   # standard library
+@import math     # math library</code></pre>
+          </div>
+
+          <h3>Engine mode</h3>
+          <p>The <code>@for engine</code> flag transpiles PiNum into bare C.</p>
+          <div class="callout">If you include this flag, you can&rsquo;t import any libraries.</div>
+          <div class="codeblock">
+            <pre><code class="language-pinum">@for engine</code></pre>
+          </div>
+        </section>
+
+        <section id="variables" class="doc-section">
+          <h2>Variables &amp; types</h2>
+          <p>Declare a variable by writing its type followed by its name. Modifiers like <code>long</code>, <code>short</code>, <code>unsigned</code>, and <code>signed</code> are supported.</p>
+
+          <h3>Basic types</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Example</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>int</code></td><td><code>int count = 10;</code></td><td>Whole numbers</td></tr>
+              <tr><td><code>float</code></td><td><code>float ratio = 3.5;</code></td><td>Floating point</td></tr>
+              <tr><td><code>double</code></td><td><code>double pi = 3.14159;</code></td><td>Double precision float</td></tr>
+              <tr><td><code>char</code></td><td><code>char letter = 'A';</code></td><td>A single character</td></tr>
+              <tr><td><code>string</code></td><td><code>string name = "pinum";</code></td><td>Text</td></tr>
+              <tr><td><code>bool</code></td><td><code>bool done = true;</code></td><td><code>true</code> or <code>false</code></td></tr>
+            </tbody>
+          </table>
+
+          <div class="codeblock">
+            <pre><code class="language-pinum">int count = 10;
+float ratio = 3.5;
+double pi = 3.14159;
+char letter = 'A';
+string name = "pinum";
+bool done = true;</code></pre>
+          </div>
+
+          <h3>Declaring without a value</h3>
+          <p>You can declare a variable and assign a value later.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int a;
+a = 5;</code></pre>
+          </div>
+
+          <h3>Type modifiers</h3>
+          <div class="codeblock">
+            <pre><code class="language-pinum">unsigned int u = 2147483647;
+signed int si = -5;
+long int li = 123456789;
+long double ld = 0.123456789;
+short int sh = -32768;</code></pre>
+          </div>
+        </section>
+
+        <section id="operators" class="doc-section">
+          <h2>Operators</h2>
+          <p>Standard arithmetic, comparison, logical, and bitwise operators, plus a ternary conditional.</p>
+
+          <h3>Arithmetic</h3>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int a = 10;
+int b = 3;
+print(a + b, "\n");   # 13
+print(a - b, "\n");   # 7
+print(a * b, "\n");   # 30
+print(a / b, "\n");   # 3
+print(a % b, "\n");   # 1</code></pre>
+          </div>
+
+          <h3>Comparison &amp; logical</h3>
+          <div class="codeblock">
+            <pre><code class="language-pinum">print(a &gt; b, "\n");    # true
+print(a == b, "\n");   # false
+
+bool t = true;
+bool f = false;
+print(t &amp;&amp; f, "\n");   # false
+print(t || f, "\n");   # true</code></pre>
+          </div>
+
+          <h3>Ternary</h3>
+          <p><code>condition ? then : else</code></p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int max = a &gt; b ? a : b;
+print(max, "\n");</code></pre>
+          </div>
+        </section>
+
+        <section id="conditions" class="doc-section">
+          <h2>Conditions</h2>
+          <div class="codeblock">
+            <pre><code class="language-pinum">if (condition) {
+    # task 1
+} else if (condition) {
+    # task 2
+} else {
+    # default task
+}</code></pre>
+          </div>
+        </section>
+
+        <section id="loops" class="doc-section">
+          <h2>Loops</h2>
+          <p>There are two loops: <code>for</code> and <code>while</code>.</p>
+
+          <h3>For loop</h3>
+          <div class="codeblock">
+            <pre><code class="language-pinum">for (variable; condition; increment or decrement) {
+    # task
+}</code></pre>
+          </div>
+
+          <h3>While loop</h3>
+          <div class="codeblock">
+            <pre><code class="language-pinum">while (condition) {
+    # task
+}</code></pre>
+          </div>
+        </section>
+
+        <section id="io" class="doc-section">
+          <h2>Input &amp; output</h2>
+          <p>Output with <code>print()</code>, input with <code>read()</code>.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">@import stdlib
+
+int number = 10;
+print(number, "\n");
+print("hello ", number, "\n");</code></pre>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

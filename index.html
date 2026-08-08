@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PiNum — a lightweight, C-inspired programming language. Simple to learn, built to embed." />
+  <title>PiNum-Lang</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-title">
+      <img class="hero-logo" src="assets/pinum_logo.svg" alt="PiNum logo" />
+      <h1>PiNum<span class="accent">-Lang</span></h1>
+    </div>
+    <p class="tagline">
+      A lightweight, C-inspired programming language. Simple to learn, built to embed.
+    </p>
+    <span class="version">v0.10.12</span>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="install.html">Get started</a>
+      <a class="btn btn-ghost" href="docs.html">Documentation</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-label">Quick start</div>
+    <h2 class="section-title">Hello, PiNum.</h2>
+    <p class="section-sub">Install it in one line, save a file, run it.</p>
+
+    <div class="codeblock">
+      <pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/tanvir-techbro/PiNum-Lang/main/install.sh | bash</code></pre>
+    </div>
+
+    <p class="section-sub">Save the following as <code>example.pn</code>:</p>
+
+    <div class="codeblock">
+      <pre><code class="language-pinum">@import stdlib
+
+string name = "world";
+print("Hello, ", name, "!\n");
+
+int a = 10;
+int b = 3;
+print(a + b, "\n");          # 13
+print(a &gt; b, "\n");          # true
+print(a &gt; b ? "a wins" : "b wins", "\n");</code></pre>
+    </div>
+
+    <p class="section-sub">Then run it:</p>
+
+    <div class="codeblock">
+      <pre><code class="language-bash">pinum example.pn</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Why PiNum?</h2>
+    <p class="section-sub">Everything you expect, nothing you don&rsquo;t.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>C-style syntax</h3>
+        <p>Familiar types and control structures that are easy to pick up.</p>
+      </div>
+      <div class="feature">
+        <h3>Modular imports</h3>
+        <p><code>@import stdlib</code>, <code>@import math</code>, or bare C via <code>@for engine</code>.</p>
+      </div>
+      <div class="feature">
+        <h3>Rich operators</h3>
+        <p>Arithmetic, logical, bitwise, and ternary operators.</p>
+      </div>
+      <div class="feature">
+        <h3>Editor support</h3>
+        <p>Syntax highlighting for VS Code and Neovim included.</p>
+      </div>
+      <div class="feature">
+        <h3>Clean pipeline</h3>
+        <p>Custom lexer, AST, and parser written in C.</p>
+      </div>
+      <div class="feature">
+        <h3>Easy install</h3>
+        <p>One-line script on Linux/macOS, or build with <code>make</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
