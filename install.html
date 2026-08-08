@@ -17,6 +17,7 @@
         <a href="docs.html">Docs</a>
         <a href="install.html" class="active">Install</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html">Contribute</a>
         <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
@@ -25,51 +26,72 @@
   <main class="docs-wrap">
     <div class="docs-head">
       <h1>Installation</h1>
-      <p class="docs-sub">Get PiNum running in a few minutes.</p>
+      <p class="docs-sub">Get PiNum running in a few minutes. There are two ways to install it: the one-line curl script, or building from source.</p>
     </div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>One-line install</h3>
-          <p>The fastest way to install PiNum on Linux/macOS:</p>
-          <div class="codeblock">
-            <pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/tanvir-techbro/PiNum-Lang/main/install.sh | bash</code></pre>
+    <div class="doc-section">
+      <h2>Option 1 · One-line install</h2>
+      <p>The fastest way to install PiNum on Linux/macOS. The script downloads, builds, and installs the binary for you:</p>
+      <div class="codeblock">
+        <pre><code class="language-bash">curl -sSL https://raw.githubusercontent.com/tanvir-techbro/PiNum-Lang/main/install.sh | bash</code></pre>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2>Option 2 · Build from source</h2>
+      <p>Prefer to build it yourself, or want the latest changes? Follow these steps.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Install prerequisites</h3>
+            <p>A C compiler (e.g. <code>gcc</code>) and <code>make</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Clone the repository</h3>
+            <div class="codeblock">
+              <pre><code class="language-bash">git clone https://github.com/tanvir-techbro/PiNum-Lang.git
+cd PiNum-Lang</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Build</h3>
+            <div class="codeblock">
+              <pre><code class="language-bash">make</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Install the binary (optional)</h3>
+            <p>The binary lives in the <code>bin/</code> directory. Add it to your PATH with:</p>
+            <div class="codeblock">
+              <pre><code class="language-bash">sudo make install</code></pre>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>Prerequisites</h3>
-          <p>A C compiler (e.g. <code>gcc</code>) and <code>make</code>.</p>
-        </div>
+    <div class="doc-section">
+      <h2>Run a program</h2>
+      <p>However you installed it, PiNum files use the <code>.pn</code> extension:</p>
+      <div class="codeblock">
+        <pre><code class="language-bash">pinum example/helloworld.pn</code></pre>
       </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Build from source</h3>
-          <div class="codeblock">
-            <pre><code class="language-bash">git clone https://github.com/tanvir-techbro/PiNum-Lang.git
-cd PiNum-Lang
-make</code></pre>
-          </div>
-          <p>The binary lives in the <code>bin/</code> directory. Add it to your PATH with <code>sudo make install</code>.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <h3>Run a program</h3>
-          <p>PiNum files use the <code>.pn</code> extension:</p>
-          <div class="codeblock">
-            <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
-          </div>
-        </div>
+      <p>If you skipped <code>sudo make install</code>, run it straight from the build output:</p>
+      <div class="codeblock">
+        <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
       </div>
     </div>
 
@@ -99,6 +121,7 @@ make</code></pre>
         <a href="docs.html">Docs</a>
         <a href="install.html">Install</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html">Contribute</a>
         <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>

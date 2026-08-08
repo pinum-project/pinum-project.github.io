@@ -1,16 +1,18 @@
 :root {
-  --bg: #fcfbf8;
-  --panel: #ffffff;
-  --code-bg: #f7f6f2;
-  --border: #e6e4de;
-  --text: #1b1a17;
-  --muted: #6f6d66;
-  --accent: #f57f02;
-  --accent-soft: rgba(245, 127, 2, 0.1);
-  --accent-glow: rgba(245, 127, 2, 0.14);
-  --green: #16a34a;
-  --yellow: #ca8a04;
-  --red: #dc2626;
+  --bg: #17181c;
+  --panel: #1e2026;
+  --code-bg: #101114;
+  --code-border: #2a2c33;
+  --code-text: #e8e8e3;
+  --border: #2e3038;
+  --text: #e8e8e3;
+  --muted: #9a9ca6;
+  --accent: #ff8a1e;
+  --accent-soft: rgba(255, 138, 30, 0.12);
+  --accent-glow: rgba(255, 138, 30, 0.18);
+  --green: #3fb950;
+  --yellow: #d29922;
+  --red: #f85149;
   --radius: 8px;
   --max-width: 1000px;
   --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -29,7 +31,11 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255, 138, 30, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 138, 30, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
   color: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -46,8 +52,13 @@ a:hover {
 
 /* ---------- Nav ---------- */
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: rgba(23, 24, 28, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .nav-inner {
@@ -108,6 +119,8 @@ a:hover {
   inset: -40% 0 auto 0;
   height: 500px;
   background: radial-gradient(600px 320px at 50% 0%, var(--accent-glow), transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
   pointer-events: none;
 }
 
@@ -253,45 +266,67 @@ section {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2b2d33;
+  border: 1px solid #3a3d45;
+  color: #b7bcc7;
   border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 0.72rem;
+  padding: 5px;
+  line-height: 0;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.15s ease;
 }
 
-.codeblock:hover .copy-btn {
+.codeblock .copy-btn svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  fill: currentColor;
+}
+
+.codeblock:hover .copy-btn,
+.codeblock .copy-btn:focus-visible {
   opacity: 1;
 }
 
 .copy-btn:hover {
-  color: var(--text);
+  color: #fff;
   border-color: var(--accent);
+}
+
+.copy-btn.copied {
+  color: #3fb950;
+  border-color: rgba(63, 185, 80, 0.4);
+}
+
+.copy-btn.failed {
+  color: #f85149;
+  border-color: rgba(248, 81, 73, 0.4);
 }
 
 pre {
   background: var(--code-bg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--code-border);
   border-radius: var(--radius);
   padding: 18px 20px;
   overflow-x: auto;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.65;
+  color: var(--code-text);
 }
 
-code.language-pinum .comment { color: #9a968c; font-style: italic; }
-code.language-pinum .directive { color: #7c3aed; font-weight: 600; }
-code.language-pinum .keyword { color: #1d4ed8; }
-code.language-pinum .type { color: #d9480f; }
-code.language-pinum .constant { color: #9a6b00; }
-code.language-pinum .number { color: #d9480f; }
-code.language-pinum .string { color: #15803d; }
-code.language-pinum .operator { color: #0369a1; }
+code.language-pinum .comment { color: #7d8799; font-style: italic; }
+code.language-pinum .directive { color: #c678dd; font-weight: 600; }
+code.language-pinum .keyword { color: #61afef; }
+code.language-pinum .type { color: #e5c07b; }
+code.language-pinum .constant { color: #f0c674; }
+code.language-pinum .number { color: #d19a66; }
+code.language-pinum .string { color: #98c379; }
+code.language-pinum .operator { color: #56b6c2; }
 
 /* ---------- Docs ---------- */
 .docs-wrap {
@@ -395,7 +430,7 @@ code.language-pinum .operator { color: #0369a1; }
 }
 
 .doc-section th {
-  background: var(--code-bg);
+  background: #26282f;
   font-size: 0.85rem;
 }
 
@@ -496,6 +531,7 @@ code.language-pinum .operator { color: #0369a1; }
 /* ---------- Footer ---------- */
 footer {
   border-top: 1px solid var(--border);
+  background-color: #1b1d22;
   padding: 36px 24px;
 }
 

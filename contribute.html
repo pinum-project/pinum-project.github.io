@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contribute to PiNum-Lang: report bugs, request features, submit pull requests, and improve documentation." />
+  <title>Contribute · PiNum</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html" class="active">Contribute</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-wrap">
+    <div class="docs-head">
+      <h1>Contributing</h1>
+      <p class="docs-sub">PiNum is open source and MIT-licensed &mdash; any help is welcome, from bug reports to pull requests.</p>
+    </div>
+
+    <div class="docs-grid">
+      <aside class="toc">
+        <h4>On this page</h4>
+        <a href="#ways-to-contribute">Ways to contribute</a>
+        <a href="#getting-started">Getting started</a>
+        <a href="#project-structure">Project structure</a>
+        <a href="#pull-requests">Pull requests</a>
+        <a href="#good-first-issues">Good first issues</a>
+      </aside>
+
+      <div class="doc-content">
+        <section id="ways-to-contribute" class="doc-section">
+          <h2>Ways to contribute</h2>
+          <ul>
+            <li><strong>Report bugs</strong> &mdash; open an issue on GitHub with a minimal example and what you expected to happen.</li>
+            <li><strong>Request features</strong> &mdash; describe the feature and how you&rsquo;d expect it to behave.</li>
+            <li><strong>Submit pull requests</strong> &mdash; bug fixes, codegen, new syntax, tests.</li>
+            <li><strong>Improve the docs &amp; this site</strong> &mdash; typos, clarifications, and new examples all help.</li>
+          </ul>
+          <p>Everything lives on <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>.</p>
+          <div class="callout">
+            Before you start, read the
+            <a href="https://github.com/tanvir-techbro/PiNum-Lang/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a>
+            in the repository &mdash; it has the full guidelines and code style rules.
+          </div>
+        </section>
+
+        <section id="getting-started" class="doc-section">
+          <h2>Getting started</h2>
+          <h3>Prerequisites</h3>
+          <p>A C compiler (e.g. <code>gcc</code>), <code>make</code>, and <code>git</code>.</p>
+
+          <h3>Clone and build</h3>
+          <div class="codeblock">
+            <pre><code class="language-bash">git clone https://github.com/tanvir-techbro/PiNum-Lang.git
+cd PiNum-Lang
+make</code></pre>
+          </div>
+
+          <h3>Run the example</h3>
+          <div class="codeblock">
+            <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
+          </div>
+        </section>
+
+        <section id="project-structure" class="doc-section">
+          <h2>Project structure</h2>
+          <p>The compiler pipeline is written in C:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Lexer / tokenizer</td><td>Done</td></tr>
+              <tr><td>AST construction</td><td>Done</td></tr>
+              <tr><td>Parser</td><td>Done</td></tr>
+              <tr><td>Code generation</td><td>In progress</td></tr>
+            </tbody>
+          </table>
+          <p>See the <a href="roadmap.html">roadmap</a> for the full breakdown.</p>
+        </section>
+
+        <section id="pull-requests" class="doc-section">
+          <h2>Opening a pull request</h2>
+          <ol>
+            <li>Fork the repo and create a branch: <code>git checkout -b my-feature</code></li>
+            <li>Make your changes and build: <code>make</code></li>
+            <li>Confirm the example still runs: <code>./bin/pinum example/helloworld.pn</code></li>
+            <li>Commit with a clear message, push, and open a pull request against the <code>development</code> branch.</li>
+          </ol>
+          <div class="callout">Always open pull requests against the <strong>development</strong> branch &mdash; not <code>main</code>. Keep PRs small and focused &mdash; one feature or fix per PR makes review much easier.</div>
+        </section>
+
+        <section id="good-first-issues" class="doc-section">
+          <h2>Good first issues</h2>
+          <p>Everything on the <a href="roadmap.html">roadmap</a> is open territory. The most useful contributions right now are in code generation:</p>
+          <ul>
+            <li>Codegen for <code>if</code>, <code>while</code>, <code>for</code>, <code>return</code></li>
+            <li>Codegen for <code>read()</code>, <code>break</code>, <code>continue</code></li>
+            <li>Function definitions &amp; calls</li>
+            <li><code>switch</code> / <code>case</code></li>
+            <li>Arrays &mdash; <code>int arr[5]</code></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html">Contribute</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
