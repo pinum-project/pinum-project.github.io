@@ -103,6 +103,25 @@ document.querySelectorAll("pre").forEach((pre) => {
   pre.parentElement.appendChild(btn);
 });
 
+// --- Page loading feedback ---
+const loader = document.querySelector(".page-loader");
+
+document.querySelectorAll("a[href]").forEach((a) => {
+  const href = a.getAttribute("href");
+  const isInternal =
+    href &&
+    !href.startsWith("http") &&
+    !href.startsWith("//") &&
+    !href.startsWith("#") &&
+    !href.startsWith("mailto:") &&
+    !href.endsWith(".svg");
+  if (!isInternal) return;
+  a.addEventListener("click", (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    if (loader) loader.classList.add("active");
+  });
+});
+
 // --- TOC scrollspy ---
 const tocLinks = document.querySelectorAll(".toc a");
 if (tocLinks.length) {
