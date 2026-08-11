@@ -66,7 +66,7 @@ print(a &gt; b ? "a wins" : "b wins", "\n");</code></pre>
     <p class="section-sub">Then run it:</p>
 
     <div class="codeblock">
-      <pre><code class="language-bash">pinum example.pn</code></pre>
+      <pre><code class="language-bash">pinum -o example example.pn</code></pre>
     </div>
   </section>
 
@@ -80,8 +80,8 @@ print(a &gt; b ? "a wins" : "b wins", "\n");</code></pre>
         <p>Familiar types and control structures that are easy to pick up.</p>
       </div>
       <div class="feature">
-        <h3>Modular imports</h3>
-        <p><code>@import stdlib</code>, <code>@import math</code>, or bare C via <code>@for engine</code>.</p>
+        <h3>Simple I/O</h3>
+        <p><code>print()</code> and <code>read()</code> handle output and input with zero setup.</p>
       </div>
       <div class="feature">
         <h3>Rich operators</h3>

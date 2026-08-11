@@ -74,7 +74,7 @@ make</code></pre>
 
           <h3>Run the example</h3>
           <div class="codeblock">
-            <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
+            <pre><code class="language-bash">./bin/pinum example/demonstration.pn</code></pre>
           </div>
         </section>
 
@@ -92,7 +92,7 @@ make</code></pre>
               <tr><td>Lexer / tokenizer</td><td>Done</td></tr>
               <tr><td>AST construction</td><td>Done</td></tr>
               <tr><td>Parser</td><td>Done</td></tr>
-              <tr><td>Code generation</td><td>In progress</td></tr>
+              <tr><td>Code generation</td><td>Done</td></tr>
             </tbody>
           </table>
           <p>See the <a href="roadmap.html">roadmap</a> for the full breakdown.</p>
@@ -103,7 +103,7 @@ make</code></pre>
           <ol>
             <li>Fork the repo and create a branch: <code>git checkout -b my-feature</code></li>
             <li>Make your changes and build: <code>make</code></li>
-            <li>Confirm the example still runs: <code>./bin/pinum example/helloworld.pn</code></li>
+            <li>Confirm the example still runs: <code>./bin/pinum example/demonstration.pn</code></li>
             <li>Commit with a clear message, push, and open a pull request against the <code>development</code> branch.</li>
           </ol>
           <div class="callout">Always open pull requests against the <strong>development</strong> branch &mdash; not <code>main</code>. Keep PRs small and focused &mdash; one feature or fix per PR makes review much easier.</div>
@@ -111,13 +111,12 @@ make</code></pre>
 
         <section id="good-first-issues" class="doc-section">
           <h2>Good first issues</h2>
-          <p>Everything on the <a href="roadmap.html">roadmap</a> is open territory. The most useful contributions right now are in code generation:</p>
+          <p>Everything on the <a href="roadmap.html">roadmap</a> is open territory. The most useful contributions right now are:</p>
           <ul>
-            <li>Codegen for <code>if</code>, <code>while</code>, <code>for</code>, <code>return</code></li>
-            <li>Codegen for <code>read()</code>, <code>break</code>, <code>continue</code></li>
+            <li><code>for</code> loops</li>
             <li>Function definitions &amp; calls</li>
+            <li>Data structures &mdash; arrays (<code>int arr[5]</code>) and structs</li>
             <li><code>switch</code> / <code>case</code></li>
-            <li>Arrays &mdash; <code>int arr[5]</code></li>
           </ul>
         </section>
       </div>

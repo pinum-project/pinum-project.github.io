@@ -11,10 +11,9 @@ if (toggle && links) {
 const TOKEN_PATTERN = new RegExp(
   [
     /(#.*$)/,                                   // comments
-    /(@[A-Za-z_]\w*)/,                          // directives  @import, @for
-    /\b(if|else|print|read|return|while|for|break|continue|switch)\b/, // keywords
-    /\b(int|float|double|char|string|bool|long|short|signed|unsigned|vec)\b/, // types
-    /\b(true|false|stdlib|math|engine)\b/,      // constants
+    /\b(if|else|print|read|return|while|break|continue)\b/, // keywords
+    /\b(int|float|double|char|string|bool|long|short|signed|unsigned)\b/, // types
+    /\b(true|false)\b/,                         // constants
     /("(?:[^"\\\n]|\\.)*")/,                    // strings
     /('(?:[^'\\\n]|\\.)*')/,                    // chars
     /(\b\d+(?:\.\d+)?\b)/,                      // numbers
@@ -42,12 +41,11 @@ function highlightPinum(code) {
     const groups = m.slice(1);
     const cls =
       groups[0] !== undefined ? "comment"
-      : groups[1] !== undefined ? "directive"
-      : groups[2] !== undefined ? "keyword"
-      : groups[3] !== undefined ? "type"
-      : groups[4] !== undefined ? "constant"
-      : groups[5] !== undefined || groups[6] !== undefined ? "string"
-      : groups[7] !== undefined ? "number"
+      : groups[1] !== undefined ? "keyword"
+      : groups[2] !== undefined ? "type"
+      : groups[3] !== undefined ? "constant"
+      : groups[4] !== undefined || groups[5] !== undefined ? "string"
+      : groups[6] !== undefined ? "number"
       : "operator";
     html += `<span class="${cls}">${escapeHtml(m[0])}</span>`;
     last = m.index + m[0].length;

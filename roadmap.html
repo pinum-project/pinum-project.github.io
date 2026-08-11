@@ -31,8 +31,9 @@
     <div class="docs-head">
       <h1>Development status</h1>
       <p class="docs-sub">
-        PiNum is in its early stages. The lexer, AST, and parser are complete;
-        code generation is being built out now. Current version: v0.10.12.
+        PiNum is at v1.0.0-beta. The lexer, AST, parser, and code generation for
+        the current feature set are complete; next up are <code>for</code> loops,
+        functions, and data structures.
       </p>
     </div>
 
@@ -43,29 +44,29 @@
         <li><span class="status done">Done</span> AST construction</li>
         <li><span class="status done">Done</span> Parser</li>
         <li><span class="status done">Done</span> Variable declarations &amp; assignments</li>
-        <li><span class="status done">Done</span> Blocks, <code>if / else</code>, <code>while</code>, <code>for</code></li>
+        <li><span class="status done">Done</span> Blocks and <code>if / else</code></li>
+        <li><span class="status done">Done</span> <code>while</code> loops</li>
         <li><span class="status done">Done</span> <code>return</code>, <code>break</code>, <code>continue</code></li>
         <li><span class="status done">Done</span> Ternary operator</li>
-        <li><span class="status done">Done</span> Full expression grammar &amp; <code>@import</code> directives</li>
-        <li><span class="status done">Done</span> Codegen: literals, expressions, <code>print()</code> → <code>printf()</code></li>
+        <li><span class="status done">Done</span> Full expression grammar</li>
+        <li><span class="status done">Done</span> Codegen: literals, expressions, <code>print()</code>, <code>read()</code></li>
+        <li><span class="status done">Done</span> Codegen: <code>if / else</code>, <code>while</code>, <code>return</code>, <code>break</code>, <code>continue</code></li>
       </ul>
     </div>
 
     <div class="doc-section">
       <h2>In progress</h2>
       <ul class="roadmap-list">
-        <li><span class="status wip">WIP</span> Codegen: blocks, <code>if</code>, <code>while</code>, <code>for</code>, <code>return</code></li>
-        <li><span class="status wip">WIP</span> Codegen: <code>read()</code>, <code>break</code>, <code>continue</code></li>
+        <li><span class="status wip">WIP</span> <code>for</code> loops</li>
+        <li><span class="status wip">WIP</span> Function definitions &amp; calls</li>
+        <li><span class="status wip">WIP</span> Data structures (arrays, structs)</li>
       </ul>
     </div>
 
     <div class="doc-section">
       <h2>Up next</h2>
       <ul class="roadmap-list">
-        <li><span class="status planned">Planned</span> Function definitions &amp; calls</li>
         <li><span class="status planned">Planned</span> <code>switch</code> / <code>case</code></li>
-        <li><span class="status planned">Planned</span> Arrays — <code>int arr[5]</code></li>
-        <li><span class="status planned">Planned</span> Structs &amp; member access — <code>obj.prop</code></li>
         <li><span class="status planned">Planned</span> Runtime library</li>
       </ul>
     </div>

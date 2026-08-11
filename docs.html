@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PiNum documentation: comments, imports, types, variables, operators, conditions, and loops." />
+  <meta name="description" content="PiNum documentation: comments, types, variables, operators, conditions, loops, and input/output." />
   <title>Documentation · PiNum</title>
   <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
   <link rel="stylesheet" href="css/style.css" />
@@ -37,7 +37,6 @@
       <aside class="toc">
         <h4>On this page</h4>
         <a href="#comments">Comments</a>
-        <a href="#directives">Imports &amp; directives</a>
         <a href="#variables">Variables &amp; types</a>
         <a href="#operators">Operators</a>
         <a href="#conditions">Conditions</a>
@@ -54,22 +53,6 @@
 # there is only single line comments.
 
 int a = 1;   # comments can appear after code too</code></pre>
-          </div>
-        </section>
-
-        <section id="directives" class="doc-section">
-          <h2>Imports &amp; directives</h2>
-          <p>Directives begin with <code>@</code>. Pull in the standard library with <code>@import</code>.</p>
-          <div class="codeblock">
-            <pre><code class="language-pinum">@import stdlib   # standard library
-@import math     # math library</code></pre>
-          </div>
-
-          <h3>Engine mode</h3>
-          <p>The <code>@for engine</code> flag transpiles PiNum into bare C.</p>
-          <div class="callout">If you include this flag, you can&rsquo;t import any libraries.</div>
-          <div class="codeblock">
-            <pre><code class="language-pinum">@for engine</code></pre>
           </div>
         </section>
 
@@ -171,32 +154,33 @@ print(max, "\n");</code></pre>
 
         <section id="loops" class="doc-section">
           <h2>Loops</h2>
-          <p>There are two loops: <code>for</code> and <code>while</code>.</p>
+          <p>Currently there is one loop: <code>while</code>. (<code>for</code> loops are on the <a href="roadmap.html">roadmap</a>.)</p>
 
-          <h3>For loop</h3>
-          <div class="codeblock">
-            <pre><code class="language-pinum">for (variable; condition; increment or decrement) {
-    # task
-}</code></pre>
-          </div>
-
-          <h3>While loop</h3>
           <div class="codeblock">
             <pre><code class="language-pinum">while (condition) {
     # task
+    if (something) {
+        break;      # exit the loop
+    }
+    if (something_else) {
+        continue;   # skip to the next iteration
+    }
 }</code></pre>
           </div>
         </section>
 
         <section id="io" class="doc-section">
           <h2>Input &amp; output</h2>
-          <p>Output with <code>print()</code>, input with <code>read()</code>.</p>
+          <p>Output with <code>print()</code>, input with <code>read()</code>. The standard library is included automatically.</p>
           <div class="codeblock">
-            <pre><code class="language-pinum">@import stdlib
-
-int number = 10;
+            <pre><code class="language-pinum">int number = 10;
 print(number, "\n");
-print("hello ", number, "\n");</code></pre>
+print("hello ", number, "\n");
+
+int data;
+print('Enter a number: ');
+read(data);
+print("you entered ", data, "\n");</code></pre>
           </div>
         </section>
       </div>

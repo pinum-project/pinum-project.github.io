@@ -91,12 +91,45 @@ cd PiNum-Lang</code></pre>
       <h2>Run a program</h2>
       <p>However you installed it, PiNum files use the <code>.pn</code> extension:</p>
       <div class="codeblock">
-        <pre><code class="language-bash">pinum example/helloworld.pn</code></pre>
+        <pre><code class="language-bash">pinum example/demonstration.pn</code></pre>
       </div>
       <p>If you skipped <code>sudo make install</code>, run it straight from the build output:</p>
       <div class="codeblock">
-        <pre><code class="language-bash">./bin/pinum example/helloworld.pn</code></pre>
+        <pre><code class="language-bash">./bin/pinum example/demonstration.pn</code></pre>
       </div>
+      <p>By default the compiled binary lands in your current working directory as <code>a.out</code>. Run <code>pinum --help</code> anytime to see all flags:</p>
+      <div class="codeblock">
+        <pre><code class="language-bash"># compile to a binary named program
+pinum -o program example/demonstration.pn
+
+# output only the C source file
+pinum -o program.c example/demonstration.pn
+
+# output both the C source file and a compiled binary
+pinum -oc program example/demonstration.pn</code></pre>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2>Command-line options</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Flag</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>-o, --output</code></td><td>Output a C source file (<code>.c</code>) or a binary</td></tr>
+          <tr><td><code>-oc, --output-c</code></td><td>Output both a C source file and a binary</td></tr>
+          <tr><td><code>--debug-all</code></td><td>Enable all debugging functions</td></tr>
+          <tr><td><code>--debug-lexer</code></td><td>Enable lexer debugging</td></tr>
+          <tr><td><code>--debug-ast</code></td><td>Enable AST debugging</td></tr>
+          <tr><td><code>-v, --version</code></td><td>Display version information</td></tr>
+          <tr><td><code>-u, --update</code></td><td>Update pinum to the latest version</td></tr>
+          <tr><td><code>-h, --help</code></td><td>Display this output</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="callout">
