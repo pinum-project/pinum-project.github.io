@@ -7,6 +7,18 @@ if (toggle && links) {
   });
 }
 
+// --- Version badge (fetched from GitHub) ---
+const versionEl = document.querySelector("#version");
+if (versionEl) {
+  fetch("https://raw.githubusercontent.com/tanvir-techbro/PiNum-Lang/main/VERSION")
+    .then((r) => (r.ok ? r.text() : Promise.reject()))
+    .then((t) => {
+      const v = t.trim();
+      if (v) versionEl.textContent = "v" + v;
+    })
+    .catch(() => {});
+}
+
 // --- PiNum syntax highlighting ---
 const TOKEN_PATTERN = new RegExp(
   [

@@ -186,7 +186,8 @@ a:hover {
 
 .hero .version {
   display: inline-block;
-  margin-top: 20px;
+  align-self: flex-start;
+  margin-top: 16px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent);
@@ -194,6 +195,10 @@ a:hover {
   border: 1px solid rgba(245, 127, 2, 0.35);
   padding: 3px 12px;
   border-radius: 999px;
+}
+
+.hero .version:empty {
+  display: none;
 }
 
 .hero-actions {
