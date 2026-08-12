@@ -37,6 +37,7 @@
       <aside class="toc">
         <h4>On this page</h4>
         <a href="#comments">Comments</a>
+        <a href="#semicolons">Semicolons are optional</a>
         <a href="#variables">Variables &amp; types</a>
         <a href="#operators">Operators</a>
         <a href="#conditions">Conditions</a>
@@ -52,7 +53,21 @@
             <pre><code class="language-pinum"># this is a comment!
 # there is only single line comments.
 
-int a = 1;   # comments can appear after code too</code></pre>
+int a = 1   # comments can appear after code too</code></pre>
+          </div>
+        </section>
+
+        <section id="semicolons" class="doc-section">
+          <h2>Semicolons are optional</h2>
+          <p>Statements end at a newline, so you don&rsquo;t need semicolons:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int a = 10
+int b = 3
+print(a + b, "\n")</code></pre>
+          </div>
+          <p>Use semicolons only when you want to put multiple statements on a single line:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int a = 1; int b = 2; print(a + b, "\n")</code></pre>
           </div>
         </section>
 
@@ -70,38 +85,38 @@ int a = 1;   # comments can appear after code too</code></pre>
               </tr>
             </thead>
             <tbody>
-              <tr><td><code>int</code></td><td><code>int count = 10;</code></td><td>Whole numbers</td></tr>
-              <tr><td><code>float</code></td><td><code>float ratio = 3.5;</code></td><td>Floating point</td></tr>
-              <tr><td><code>double</code></td><td><code>double pi = 3.14159;</code></td><td>Double precision float</td></tr>
-              <tr><td><code>char</code></td><td><code>char letter = 'A';</code></td><td>A single character</td></tr>
-              <tr><td><code>string</code></td><td><code>string name = "pinum";</code></td><td>Text</td></tr>
-              <tr><td><code>bool</code></td><td><code>bool done = true;</code></td><td><code>true</code> or <code>false</code></td></tr>
+              <tr><td><code>int</code></td><td><code>int count = 10</code></td><td>Whole numbers</td></tr>
+              <tr><td><code>float</code></td><td><code>float ratio = 3.5</code></td><td>Floating point</td></tr>
+              <tr><td><code>double</code></td><td><code>double pi = 3.14159</code></td><td>Double precision float</td></tr>
+              <tr><td><code>char</code></td><td><code>char letter = 'A'</code></td><td>A single character</td></tr>
+              <tr><td><code>string</code></td><td><code>string name = "pinum"</code></td><td>Text</td></tr>
+              <tr><td><code>bool</code></td><td><code>bool done = true</code></td><td><code>true</code> or <code>false</code></td></tr>
             </tbody>
           </table>
 
           <div class="codeblock">
-            <pre><code class="language-pinum">int count = 10;
-float ratio = 3.5;
-double pi = 3.14159;
-char letter = 'A';
-string name = "pinum";
-bool done = true;</code></pre>
+            <pre><code class="language-pinum">int count = 10
+float ratio = 3.5
+double pi = 3.14159
+char letter = 'A'
+string name = "pinum"
+bool done = true</code></pre>
           </div>
 
           <h3>Declaring without a value</h3>
           <p>You can declare a variable and assign a value later.</p>
           <div class="codeblock">
-            <pre><code class="language-pinum">int a;
-a = 5;</code></pre>
+            <pre><code class="language-pinum">int a
+a = 5</code></pre>
           </div>
 
           <h3>Type modifiers</h3>
           <div class="codeblock">
-            <pre><code class="language-pinum">unsigned int u = 2147483647;
-signed int si = -5;
-long int li = 123456789;
-long double ld = 0.123456789;
-short int sh = -32768;</code></pre>
+            <pre><code class="language-pinum">unsigned int u = 2147483647
+signed int si = -5
+long int li = 123456789
+long double ld = 0.123456789
+short int sh = -32768</code></pre>
           </div>
         </section>
 
@@ -111,31 +126,31 @@ short int sh = -32768;</code></pre>
 
           <h3>Arithmetic</h3>
           <div class="codeblock">
-            <pre><code class="language-pinum">int a = 10;
-int b = 3;
-print(a + b, "\n");   # 13
-print(a - b, "\n");   # 7
-print(a * b, "\n");   # 30
-print(a / b, "\n");   # 3
-print(a % b, "\n");   # 1</code></pre>
+            <pre><code class="language-pinum">int a = 10
+int b = 3
+print(a + b, "\n")   # 13
+print(a - b, "\n")   # 7
+print(a * b, "\n")   # 30
+print(a / b, "\n")   # 3
+print(a % b, "\n")   # 1</code></pre>
           </div>
 
           <h3>Comparison &amp; logical</h3>
           <div class="codeblock">
-            <pre><code class="language-pinum">print(a &gt; b, "\n");    # true
-print(a == b, "\n");   # false
+            <pre><code class="language-pinum">print(a &gt; b, "\n")    # true
+print(a == b, "\n")   # false
 
-bool t = true;
-bool f = false;
-print(t &amp;&amp; f, "\n");   # false
-print(t || f, "\n");   # true</code></pre>
+bool t = true
+bool f = false
+print(t &amp;&amp; f, "\n")   # false
+print(t || f, "\n")   # true</code></pre>
           </div>
 
           <h3>Ternary</h3>
           <p><code>condition ? then : else</code></p>
           <div class="codeblock">
-            <pre><code class="language-pinum">int max = a &gt; b ? a : b;
-print(max, "\n");</code></pre>
+            <pre><code class="language-pinum">int max = a &gt; b ? a : b
+print(max, "\n")</code></pre>
           </div>
         </section>
 
@@ -160,10 +175,10 @@ print(max, "\n");</code></pre>
             <pre><code class="language-pinum">while (condition) {
     # task
     if (something) {
-        break;      # exit the loop
+        break      # exit the loop
     }
     if (something_else) {
-        continue;   # skip to the next iteration
+        continue   # skip to the next iteration
     }
 }</code></pre>
           </div>
@@ -173,14 +188,14 @@ print(max, "\n");</code></pre>
           <h2>Input &amp; output</h2>
           <p>Output with <code>print()</code>, input with <code>read()</code>. The standard library is included automatically.</p>
           <div class="codeblock">
-            <pre><code class="language-pinum">int number = 10;
-print(number, "\n");
-print("hello ", number, "\n");
+            <pre><code class="language-pinum">int number = 10
+print(number, "\n")
+print("hello ", number, "\n")
 
-int data;
-print('Enter a number: ');
-read(data);
-print("you entered ", data, "\n");</code></pre>
+int data
+print('Enter a number: ')
+read(data)
+print("you entered ", data, "\n")</code></pre>
           </div>
         </section>
       </div>
