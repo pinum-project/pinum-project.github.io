@@ -135,6 +135,31 @@ print(a / b, "\n")   # 3
 print(a % b, "\n")   # 1</code></pre>
           </div>
 
+          <h3>Increment &amp; compound assignment</h3>
+          <p><code>++</code> and <code>--</code> adjust by one; <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, and <code>%=</code> are shortcuts for <code>x = x op y</code>.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int i = 0
+i++              # i is now 1
+i--              # i is now 0
+
+int a = 10
+a += 5           # 15  (a = a + 5)
+a -= 3           # 12
+a *= 2           # 24
+a /= 4           # 6
+a %= 4           # 2</code></pre>
+          </div>
+
+          <h3>String &amp; char repetition</h3>
+          <p>Multiply a string or a character by an integer to repeat it:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">string s = "ab" * 3
+print(s, "\n")         # ababab
+
+char c = 'x'
+print(c * 4, "\n")     # xxxx</code></pre>
+          </div>
+
           <h3>Comparison &amp; logical</h3>
           <div class="codeblock">
             <pre><code class="language-pinum">print(a &gt; b, "\n")    # true
@@ -169,8 +194,9 @@ print(max, "\n")</code></pre>
 
         <section id="loops" class="doc-section">
           <h2>Loops</h2>
-          <p>Currently there is one loop: <code>while</code>. (<code>for</code> loops are on the <a href="roadmap.html">roadmap</a>.)</p>
+          <p>There are two loops: <code>while</code> and <code>for</code>.</p>
 
+          <h3>While loop</h3>
           <div class="codeblock">
             <pre><code class="language-pinum">while (condition) {
     # task
@@ -180,6 +206,22 @@ print(max, "\n")</code></pre>
     if (something_else) {
         continue   # skip to the next iteration
     }
+}</code></pre>
+          </div>
+
+          <h3>For loop</h3>
+          <p>Follows the classic <code>for (init; condition; increment)</code> shape:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">for (int i = 0; i &lt; 5; i++) {
+    print(i, "\n")
+}
+
+for (int k = 0; k &lt; 10; k += 2) {
+    print(k, "\n")   # 0 2 4 6 8
+}
+
+for (;;) {
+    # infinite loop — use break to exit
 }</code></pre>
           </div>
         </section>

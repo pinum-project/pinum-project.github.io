@@ -23,7 +23,7 @@ if (versionEl) {
 const TOKEN_PATTERN = new RegExp(
   [
     /(#.*$)/,                                   // comments
-    /\b(if|else|print|read|return|while|break|continue)\b/, // keywords
+    /\b(if|else|print|read|return|while|for|break|continue)\b/, // keywords
     /\b(int|float|double|char|string|bool|long|short|signed|unsigned)\b/, // types
     /\b(true|false)\b/,                         // constants
     /("(?:[^"\\\n]|\\.)*")/,                    // strings
