@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Run PiNum programs in your browser — no install needed." />
+  <title>Playground · PiNum</title>
+  <link rel="icon" type="image/svg+xml" href="assets/pinum_logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html">Contribute</a>
+        <a href="playground.html" class="active">Playground</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="docs-wrap pg-wrap">
+    <div class="docs-head">
+      <h1>Playground</h1>
+      <p class="docs-sub">
+        Write PiNum, hit <em>Run</em>, and watch it execute right here. Your code is transpiled to C,
+        compiled to WebAssembly, and run in this tab — nothing leaves your browser.
+      </p>
+    </div>
+
+    <div class="pg-toolbar">
+      <div class="pg-presets">
+        <span>Load:</span>
+        <button type="button" class="btn btn-ghost pg-preset" data-example="hello">Hello</button>
+        <button type="button" class="btn btn-ghost pg-preset" data-example="fizzbuzz">FizzBuzz</button>
+        <button type="button" class="btn btn-ghost pg-preset" data-example="loops">Loops</button>
+      </div>
+      <button type="button" class="btn btn-primary pg-run" id="pg-run">
+        <span class="pg-run-label">Run</span>
+      </button>
+    </div>
+
+    <div class="pg-body">
+      <div class="pg-pane" id="pg-pane-input">
+        <div class="pg-pane-head">
+          <span>main.pn</span>
+          <span class="pg-status" id="pg-status"></span>
+        </div>
+        <div class="pg-editor">
+          <pre class="pg-hl" id="pg-hl" aria-hidden="true"><code class="language-pinum"></code></pre>
+          <textarea id="pg-code" class="pg-code" spellcheck="false" wrap="off"
+            aria-label="PiNum source code"></textarea>
+        </div>
+      </div>
+
+      <div class="pg-resizer" id="pg-resizer" role="separator"
+        aria-orientation="vertical" aria-label="Resize editor and output"></div>
+
+      <div class="pg-pane" id="pg-pane-output">
+        <div class="pg-pane-head">
+          <span>Output</span>
+        </div>
+        <pre class="pg-output" id="pg-output"><code id="pg-output-code"></code></pre>
+      </div>
+    </div>
+
+    <div class="pg-stdin-row">
+      <label for="pg-stdin">Stdin (for <code>read()</code>)</label>
+      <input id="pg-stdin" type="text" placeholder="e.g. 42" autocomplete="off" spellcheck="false" />
+    </div>
+
+    <p class="pg-note">
+      First run downloads the in-browser C compiler (a few tens of MB), so it can take a moment.
+      Subsequent runs are much faster. Currently the compiler lives on jsDelivr&rsquo;s CDN; we plan to
+      self-host it.
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/pinum_logo.svg" alt="PiNum logo" />
+        <span>PiNum-Lang · MIT</span>
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="install.html">Install</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contribute.html">Contribute</a>
+        <a href="https://github.com/tanvir-techbro/PiNum-Lang" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="page-loader" aria-hidden="true"><div class="spinner"></div></div>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/playground.js"></script>
+</body>
+</html>

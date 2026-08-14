@@ -66,6 +66,8 @@ function highlightPinum(code) {
   return html;
 }
 
+window.highlightPinum = highlightPinum;
+
 document.querySelectorAll("code.language-pinum").forEach((block) => {
   block.innerHTML = highlightPinum(block.textContent);
 });
@@ -82,7 +84,7 @@ const copyIconPromise = fetch(COPY_ICON_URL)
   .then((res) => (res.ok ? res.text() : Promise.reject()))
   .catch(() => COPY_ICON_FALLBACK);
 
-document.querySelectorAll("pre").forEach((pre) => {
+document.querySelectorAll("pre:not(.pg-hl):not(.pg-output)").forEach((pre) => {
   const btn = document.createElement("button");
   btn.className = "copy-btn";
   btn.type = "button";

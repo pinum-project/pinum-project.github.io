@@ -610,6 +610,261 @@ footer {
   color: var(--text);
 }
 
+/* ---------- Playground ---------- */
+.pg-wrap {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  min-height: calc(100vh - 60px);
+}
+
+.pg-wrap .docs-head {
+  margin-bottom: 4px;
+}
+
+.pg-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.pg-presets {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pg-presets > span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pg-presets .btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.pg-body {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 18px;
+  min-height: 0;
+}
+
+.pg-body > * {
+  min-width: 0;
+}
+
+.pg-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  min-height: 0;
+}
+
+#pg-pane-input {
+  flex: 1.27 1 56%;
+}
+
+#pg-pane-output {
+  flex: 1 1 44%;
+}
+
+.pg-pane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2px 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pg-status {
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pg-editor {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.pg-hl {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 18px 20px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  pointer-events: none;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  tab-size: 4;
+  scrollbar-width: none;
+}
+
+.pg-hl::-webkit-scrollbar {
+  display: none;
+}
+
+.pg-hl code {
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  white-space: pre;
+  font-size: 0.92rem;
+  tab-size: 4;
+}
+
+.pg-code {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--code-text);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  white-space: pre;
+  tab-size: 4;
+  -webkit-text-fill-color: transparent;
+}
+
+.pg-output {
+  flex: 1;
+  margin: 0;
+  min-height: 0;
+  border-color: var(--code-border);
+  overflow: auto;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.pg-output-error {
+  border-color: rgba(248, 81, 73, 0.5) !important;
+}
+
+.pg-resizer {
+  flex: 0 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  touch-action: none;
+  user-select: none;
+}
+
+.pg-resizer::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--border);
+  transition: background 0.15s ease;
+}
+
+.pg-resizer:hover::before,
+.pg-resizer.dragging::before {
+  background: var(--accent);
+}
+
+.pg-resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.pg-stdin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.pg-stdin-row label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pg-stdin-row input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 420px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.pg-stdin-row input:focus {
+  border-color: var(--accent);
+}
+
+.pg-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  max-width: 720px;
+}
+
+@media (max-width: 820px) {
+  .pg-body {
+    flex-direction: column;
+  }
+
+  .pg-pane {
+    flex: none;
+  }
+
+  .pg-editor {
+    min-height: 260px;
+  }
+
+  .pg-output {
+    min-height: 220px;
+  }
+
+  .pg-resizer {
+    display: none;
+  }
+}
+
 /* ---------- Page loader ---------- */
 .page-loader {
   position: fixed;
