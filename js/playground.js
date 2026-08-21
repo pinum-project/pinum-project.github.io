@@ -173,7 +173,8 @@ async function loadHeader() {
       fetch(RTSTRCHR_HDR_URL).then((r) => r.text()),
     ]);
     // Inline the whole runtime so the browser compiler needs no extra files.
-    const clean = (t) => t.replace(/^[ \t]*#include\s+"pinum_[^"]*"\.h".*\n?/gm, "");
+    // Strip every double-quoted include (we provide the contents ourselves).
+    const clean = (t) => t.replace(/^[ \t]*#include\s+"[^"]*"\s*\n?/gm, "");
     runtimeHeader = clean(rt) + "\n" + clean(vec) + "\n" + clean(str);
   }
 }
@@ -201,7 +202,8 @@ async function transpile(source) {
 
 function embedHeader(cSource) {
   // The transpiled C includes the pinum runtime headers; inline them instead.
-  const stripped = cSource.replace(/^[ \t]*#include\s+"pinum_[^"]*"\.h".*\n?/gm, "");
+  // Strip every double-quoted include (we provide the contents ourselves).
+  const stripped = cSource.replace(/^[ \t]*#include\s+"[^"]*"\s*\n?/gm, "");
   return runtimeHeader + "\n" + stripped;
 }
 
