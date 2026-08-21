@@ -44,6 +44,8 @@
         <a href="#conditions">Conditions</a>
         <a href="#loops">Loops</a>
         <a href="#io">Input &amp; output</a>
+        <a href="#collections">Collections &amp; arrays</a>
+        <a href="#functions">Functions</a>
       </aside>
 
       <div class="doc-content">
@@ -161,6 +163,15 @@ char c = 'x'
 print(c * 4, "\n")     # xxxx</code></pre>
           </div>
 
+          <h3>String &amp; char concatenation</h3>
+          <p>Add two strings (or two chars) together with <code>+</code> to make a new string:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">string first = "PiNum"
+string last = "-Lang"
+println(first + last)          # PiNum-Lang
+println("Hello, " + name + "!")</code></pre>
+          </div>
+
           <h3>Comparison &amp; logical</h3>
           <div class="codeblock">
             <pre><code class="language-pinum">print(a &gt; b, "\n")    # true
@@ -225,20 +236,111 @@ for (;;) {
     # infinite loop — use break to exit
 }</code></pre>
           </div>
+
+          <h3>For range</h3>
+          <p>A compact sugar: <code>for (N)</code> runs the body <code>N</code> times &mdash; it expands to <code>for (int __pinum_i = 0; __pinum_i &lt; N; __pinum_i++)</code>. The bound can be any expression, evaluated once before the loop. Nested range loops each get a unique hidden counter.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">for (5) {
+    println("beep")
+}
+
+int sides = 3
+for (sides) {
+    println("side")
+}
+
+for (3) {
+    for (2) {
+        print("*")
+    }
+    println()
+}</code></pre>
+          </div>
         </section>
 
         <section id="io" class="doc-section">
           <h2>Input &amp; output</h2>
-          <p>Output with <code>print()</code>, input with <code>read()</code>. The standard library is included automatically.</p>
+          <p>Output with <code>print()</code>, input with <code>read()</code>. The standard library is included automatically. <code>println()</code> is the same as <code>print()</code> but appends a newline for you.</p>
           <div class="codeblock">
             <pre><code class="language-pinum">int number = 10
 print(number, "\n")
 print("hello ", number, "\n")
 
+println("this line ends with a newline")
+println("the sum is ", number + 5)
+
 int data
 print('Enter a number: ')
 read(data)
 print("you entered ", data, "\n")</code></pre>
+          </div>
+        </section>
+
+        <section id="collections" class="doc-section">
+          <h2>Collections &amp; arrays</h2>
+          <p>PiNum has two collection types: fixed-size <strong>arrays</strong> and growable <strong>vectors</strong> (<code>vec&lt;T&gt;</code>). Vectors are monomorphized per element type, so <code>vec&lt;int&gt;</code>, <code>vec&lt;float&gt;</code>, <code>vec&lt;double&gt;</code>, <code>vec&lt;char&gt;</code>, <code>vec&lt;bool&gt;</code>, and <code>vec&lt;string&gt;</code> each compile to their own cache-friendly, by-value storage.</p>
+
+          <h3>Vector literals</h3>
+          <p>Write a vector with bracket syntax. An empty pair of brackets makes an empty vector:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">vec&lt;int&gt; nums = [3, 5, 6]
+println(nums)                 # [3, 5, 6]
+
+vec&lt;string&gt; words = ["PiNum", "rocks"]
+println(words)                # [PiNum, rocks]
+
+vec&lt;int&gt; empty = []
+println(empty)                # []</code></pre>
+          </div>
+
+          <h3>Vector methods &amp; properties</h3>
+          <p>Call methods with <code>obj.method(args)</code> and read properties with <code>obj.prop</code>. Reads and writes are bounds-checked.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">vec&lt;int&gt; nums = [3, 5, 6]
+nums.append(7)
+nums.append(8)
+println(nums)                 # [3, 5, 6, 7, 8]
+
+println(nums.size)            # 5
+
+nums[0] = 99                  # bounds-checked write
+println(nums[0])              # 99</code></pre>
+          </div>
+
+          <h3>Arrays</h3>
+          <p>Declare a fixed-size array with <code>type name[size]</code>. Elements are read and written with <code>[index]</code>:</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">int arr[3]
+arr[0] = 10
+arr[1] = 20
+arr[2] = 30
+println(arr[1])               # 20</code></pre>
+          </div>
+        </section>
+
+        <section id="functions" class="doc-section">
+          <h2>Functions</h2>
+          <p>Define a function with <code>fn</code>, a parameter list, and an optional <code>-&gt; returnType</code>. Omit the return type for a void function. Functions support recursion.</p>
+          <div class="codeblock">
+            <pre><code class="language-pinum">fn square(int n) -&gt; int {
+        return n * n
+}
+
+fn greet() {
+        println("Hello from a function!")
+}
+
+fn factorial(int n) -&gt; int {
+        if (n &lt;= 1) {
+                return 1
+        }
+        return n * factorial(n - 1)
+}
+
+int s = square(9)
+println(s)                    # 81
+greet()
+println(factorial(5))         # 120</code></pre>
           </div>
         </section>
       </div>

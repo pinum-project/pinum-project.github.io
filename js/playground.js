@@ -21,6 +21,8 @@ const stdinEl = $("pg-stdin");
 const BROWSERCC_URL = "https://cdn.jsdelivr.net/npm/browsercc@0.1.1/dist/index.js";
 const PINUM_WASM_URL = "assets/wasm/pinum.wasm";
 const RUNTIME_HDR_URL = "assets/wasm/pinum_runtime.h";
+const RTVEC_HDR_URL = "assets/wasm/pinum_rtvec.h";
+const RTSTRCHR_HDR_URL = "assets/wasm/pinum_rtstrchr.h";
 
 // --- Example programs ---
 const EXAMPLES = {
@@ -59,6 +61,20 @@ for (int i = 1; i <= 10; i++) {
   print(i, " ")
 }
 print("\\n")`,
+  collections: `# vectors, arrays, and functions
+vec<int> nums = [3, 5, 6]
+nums.append(7)
+println("nums = ", nums)          # [3, 5, 6, 7]
+println("size = ", nums.size)     # 4
+
+nums[0] = 99
+println("nums[0] = ", nums[0])    # 99
+
+fn square(int n) -> int {
+  return n * n
+}
+println("square(9) = ", square(9)) # 81
+`,
 };
 
 // --- Syntax-highlighting editor overlay ---
@@ -151,7 +167,14 @@ async function loadPinum() {
 
 async function loadHeader() {
   if (!runtimeHeader) {
-    runtimeHeader = await fetch(RUNTIME_HDR_URL).then((r) => r.text());
+    const [rt, vec, str] = await Promise.all([
+      fetch(RUNTIME_HDR_URL).then((r) => r.text()),
+      fetch(RTVEC_HDR_URL).then((r) => r.text()),
+      fetch(RTSTRCHR_HDR_URL).then((r) => r.text()),
+    ]);
+    // Inline the whole runtime so the browser compiler needs no extra files.
+    const clean = (t) => t.replace(/^[ \t]*#include\s+"pinum_[^"]*"\.h".*\n?/gm, "");
+    runtimeHeader = clean(rt) + "\n" + clean(vec) + "\n" + clean(str);
   }
 }
 
@@ -177,8 +200,8 @@ async function transpile(source) {
 }
 
 function embedHeader(cSource) {
-  // The transpiled C has `#include "pinum_runtime.h"`; prepend the header inline instead.
-  const stripped = cSource.replace(/^#include\s+"[^"]*pinum_runtime\.h".*\n?/m, "");
+  // The transpiled C includes the pinum runtime headers; inline them instead.
+  const stripped = cSource.replace(/^[ \t]*#include\s+"pinum_[^"]*"\.h".*\n?/gm, "");
   return runtimeHeader + "\n" + stripped;
 }
 

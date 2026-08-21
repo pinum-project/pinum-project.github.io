@@ -32,9 +32,11 @@
     <div class="docs-head">
       <h1>Development status</h1>
       <p class="docs-sub">
-        PiNum is at v1.2.0-beta. The lexer, AST, parser, and code generation for
-        the current feature set are complete; next up are functions and data
-        structures.
+        PiNum is at v1.3.0-beta. The lexer, AST, parser, and code generation for
+        the current feature set are complete &mdash; including collections
+        (<code>vec&lt;T&gt;</code>), arrays, functions, method calls, and range
+        loops. Next up are structs/objects, <code>switch</code>, and a native
+        backend.
       </p>
     </div>
 
@@ -55,6 +57,14 @@
         <li><span class="status done">Done</span> Full expression grammar</li>
         <li><span class="status done">Done</span> Codegen: literals, expressions, <code>print()</code>, <code>read()</code></li>
         <li><span class="status done">Done</span> Codegen: <code>if / else</code>, <code>while</code>, <code>for</code>, <code>return</code>, <code>break</code>, <code>continue</code></li>
+        <li><span class="status done">Done</span> Range loops (<code>for (n) { }</code>)</li>
+        <li><span class="status done">Done</span> <code>println()</code> &mdash; <code>print()</code> with a trailing newline</li>
+        <li><span class="status done">Done</span> Vectors <code>vec&lt;T&gt;</code> &mdash; literal syntax <code>[&hellip;]</code>, element access, and bounds-checked writes</li>
+        <li><span class="status done">Done</span> Vector methods &amp; properties (<code>.append(x)</code>, <code>.size</code>) via the method table</li>
+        <li><span class="status done">Done</span> Arrays (<code>int arr[5]</code>) with read &amp; write access (<code>arr[i]</code>, <code>arr[i] = x</code>)</li>
+        <li><span class="status done">Done</span> Method calls &amp; member access (<code>obj.method(args)</code>, <code>obj.prop</code>)</li>
+        <li><span class="status done">Done</span> Function definitions &amp; calls (<code>fn name(params) -&gt; type { }</code>, recursion)</li>
+        <li><span class="status done">Done</span> <code>@for engine</code> bare-C transpile directive</li>
         <li><span class="status done">Done</span> Initial runtime library</li>
       </ul>
     </div>
@@ -62,8 +72,9 @@
     <div class="doc-section">
       <h2>In progress</h2>
       <ul class="roadmap-list">
-        <li><span class="status wip">WIP</span> Function definitions &amp; calls</li>
-        <li><span class="status wip">WIP</span> Data structures (arrays, structs)</li>
+        <li><span class="status wip">WIP</span> Structs / objects &amp; member definitions</li>
+        <li><span class="status wip">WIP</span> Native backend (QBE) alongside the C backend</li>
+        <li><span class="status wip">WIP</span> Centralized builtin &amp; type-mapping tables</li>
       </ul>
     </div>
 
@@ -71,7 +82,7 @@
       <h2>Up next</h2>
       <ul class="roadmap-list">
         <li><span class="status planned">Planned</span> <code>switch</code> / <code>case</code></li>
-        <li><span class="status planned">Planned</span> Runtime library expansion</li>
+        <li><span class="status planned">Planned</span> Runtime library expansion (more vector methods, string ops)</li>
       </ul>
     </div>
   </main>
